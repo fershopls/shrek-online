@@ -1,7 +1,6 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://3d/downloaded/shrek/export/Shrekmat.material" type="Material" id=1]
-[ext_resource path="res://src/Player/Brains/Local/BrainLocal.gd" type="Script" id=2]
 [ext_resource path="res://src/Characters/Shrek/Shrek.gd" type="Script" id=3]
 [ext_resource path="res://src/Characters/Model.gd" type="Script" id=4]
 
@@ -1421,19 +1420,18 @@ start_node = "idle-loop"
 [node name="Shrek" type="KinematicBody"]
 script = ExtResource( 3 )
 
-[node name="BrainLocal" type="Node" parent="."]
-script = ExtResource( 2 )
+[node name="Scope" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859337, 0 )
 shape = SubResource( 7 )
 
 [node name="Model" type="Spatial" parent="."]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
 script = ExtResource( 4 )
 
 [node name="Armature" type="Spatial" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, -100, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Model/Armature"]
 bones/0/name = "hips"

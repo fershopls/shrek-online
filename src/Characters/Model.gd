@@ -10,9 +10,14 @@ func _ready():
 
 
 func _process(delta):
-	
 	if body.velocity.length():
-		look_at(body.global_transform.origin + body.velocity, Vector3.UP)
 		anim.travel("run-loop")
 	else:
 		anim.travel("idle-loop")
+
+
+func rotate_to_smooth(direction: Vector3, up = Vector3.UP):
+	var speed = 20
+	var delta = get_process_delta_time()
+	var new_transform = transform.looking_at(transform.origin + direction, up)
+	transform  = transform.interpolate_with(new_transform, speed * delta)

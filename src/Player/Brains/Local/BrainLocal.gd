@@ -8,6 +8,8 @@ func _process(delta):
 	var input = get_input()
 	
 	body.velocity = input * 5
+	
+	body.model.look_at(body.global_transform.origin - camera.global_transform.basis.z, Vector3.UP)
 
 
 func get_input() -> Vector3:

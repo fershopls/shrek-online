@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Multiplayer/Connection/Connection.gd" type="Script" id=1]
+
+[node name="Connection" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Start" type="Button" parent="."]
+margin_left = 64.5681
+margin_top = 233.363
+margin_right = 342.568
+margin_bottom = 306.363
+text = "Crear servidor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Client" type="Button" parent="."]
+margin_left = 653.196
+margin_top = 233.363
+margin_right = 931.196
+margin_bottom = 306.363
+text = "Crear cliente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Start" to="." method="_on_Server_button_up"]
+[connection signal="button_up" from="Client" to="." method="_on_Client_button_up"]

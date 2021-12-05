@@ -16,13 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="2021 12 05 121231 lol2"
-run/main_scene="res://src/World/World.tscn"
+run/main_scene="res://src/Multiplayer/Connection/Connection.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Debug="*res://src/Singleton/Debug.gd"
 Helpers="*res://src/Singleton/Helpers.gd"
+Multiplayer="*res://src/Multiplayer/MultiplayerSingleton.gd"
 
 [display]
 

@@ -6,6 +6,8 @@ onready var peers = $Peers
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_on_network_peer_connected")
 	
+	$UI/ChatInput.connect("say", self, "_on_Peer_say")
+	
 	if not get_tree().is_network_server():
 		var id = get_tree().get_network_unique_id()
 		add_shrek(id)
@@ -50,6 +52,15 @@ func _on_network_peer_connected(id):
 
 func _on_Shrek_set_input(data):
 	rpc('_rpc_shrek_set_input', data)
+
+
+func _on_Peer_say(text):
+	rpc('_rpc_peer_say', text)
+
+
+remotesync func _rpc_peer_say(text):
+	var id = str(get_tree().get_rpc_sender_id())
+	$UI/Chat.add("[%s]: %s" % [id, text])
 
 
 remotesync func _rpc_shrek_set_input(data):

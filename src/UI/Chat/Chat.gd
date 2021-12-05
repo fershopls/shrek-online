@@ -2,6 +2,7 @@ extends VBoxContainer
 
 var max_messages = 20
 
+
 func add(text):
 	var l = Label.new()
 	l.text = str(text)

@@ -7,11 +7,6 @@ func _ready():
 
 func play():
 	get_tree().change_scene("res://src/World/World.tscn")
-	yield(get_tree(), "idle_frame")
-	
-	if not get_tree().is_network_server():
-		var id = get_tree().get_network_unique_id()
-		get_tree().current_scene.add_shrek(id).add_brain_client()
 
 func _connection_failed():
 	print ('Connection failed.')

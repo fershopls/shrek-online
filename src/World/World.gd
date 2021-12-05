@@ -5,6 +5,7 @@ onready var peers = $Peers
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_on_network_peer_connected")
+	get_tree().connect("network_peer_disconnected", self, "_on_network_peer_disconnected")
 	
 	$UI/ChatInput.connect("say", self, "_on_Peer_say")
 	
@@ -39,7 +40,7 @@ func spawn_shrek(id, origin: Vector3 = Vector3.ZERO):
 
 
 func get_shrek(id):
-	return peers.get_node_or_null(id)
+	return peers.get_node_or_null(str(id))
 
 
 func _on_network_peer_connected(id):
@@ -47,6 +48,9 @@ func _on_network_peer_connected(id):
 		print("Connected to server")
 	else:
 		add_shrek(id)
+
+func _on_network_peer_disconnected(id):
+	get_shrek(id).call_deferred("free")
 
 
 

@@ -1,5 +1,7 @@
 extends Node
 
+var info = {}
+
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_on_network_peer_connected")

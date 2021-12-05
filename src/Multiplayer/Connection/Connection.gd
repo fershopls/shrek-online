@@ -6,9 +6,6 @@ func _ready():
 	if args.size() >= 2 and args[1] == "server":
 		create_server(6969, 5)
 
-func _on_Server_button_up():
-	create_server(6969, 5)
-
 
 func _on_Client_button_up():
 	create_client('xavy.mx', 6969)
@@ -28,4 +25,9 @@ func create_client(server, port):
 	var peer = NetworkedMultiplayerENet.new()
 	var result = peer.create_client(server, int(port))
 	get_tree().network_peer = peer
+	set_info()
 	Multiplayer.play()
+
+
+func set_info():
+	Multiplayer.info.username = $Username.text

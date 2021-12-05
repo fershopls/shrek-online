@@ -49,6 +49,9 @@ func _on_network_peer_connected(id):
 		print("Connected to server")
 	else:
 		add_shrek(id)
+	
+	if not get_tree().is_network_server():
+		rpc('_rpc_send_info', Multiplayer.info)
 
 func _on_network_peer_disconnected(id):
 	get_shrek(id).call_deferred("free")
@@ -63,9 +66,16 @@ func _on_Peer_say(text):
 	rpc('_rpc_peer_say', text)
 
 
+remotesync func _rpc_send_info(info):
+	var id = str(get_tree().get_rpc_sender_id())
+	var body = get_shrek(id)
+	body.username.text = info.username
+
+
 remotesync func _rpc_peer_say(text):
 	var id = str(get_tree().get_rpc_sender_id())
-	$UI/Chat.add("[%s]: %s" % [id, text])
+	var user = get_shrek(id).username.text
+	$UI/Chat.add("[%s]: %s" % [user, text])
 
 
 remotesync func _rpc_shrek_set_input(data):

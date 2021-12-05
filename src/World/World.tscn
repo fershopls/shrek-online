@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/gui/cross.png" type="Texture" id=1]
 [ext_resource path="res://3d/textures/grass.png" type="Texture" id=2]
 [ext_resource path="res://assets/backgrounds/bg.jpg" type="Texture" id=3]
 [ext_resource path="res://src/World/World.gd" type="Script" id=4]
+[ext_resource path="res://src/UI/Chat/Chat.gd" type="Script" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -45,6 +46,19 @@ margin_right = 10.5
 margin_bottom = 10.5
 texture = ExtResource( 1 )
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="VBoxContainer" parent="UI"]
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 15.0
+margin_right = 292.0
+margin_bottom = -14.0
+alignment = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

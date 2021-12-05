@@ -21,6 +21,9 @@ func _process(delta):
 
 
 remote func set_shrek_pos(id, pos):
+	if id == get_tree().get_network_unique_id():
+		return
+	
 	get_shrek(id).global_transform.origin = pos
 
 
@@ -55,7 +58,7 @@ func _on_network_peer_disconnected(id):
 
 
 func _on_Shrek_set_input(data):
-	rpc('_rpc_shrek_set_input', data)
+	rpc_unreliable('_rpc_shrek_set_input', data)
 
 
 func _on_Peer_say(text):

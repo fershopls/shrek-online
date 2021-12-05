@@ -7,3 +7,4 @@ export_presets.cfg
 *.zip
 /releases/*
 /3d
+*.pck

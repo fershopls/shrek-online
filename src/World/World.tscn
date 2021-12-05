@@ -1,12 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/gui/cross.png" type="Texture" id=1]
 [ext_resource path="res://3d/textures/grass.png" type="Texture" id=2]
+[ext_resource path="res://assets/backgrounds/bg.jpg" type="Texture" id=3]
 [ext_resource path="res://src/World/World.gd" type="Script" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 0.2, 0.2, 0.2 )
 uv1_triplanar = true
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.5
+ambient_light_sky_contribution = 0.5
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -17,3 +29,25 @@ use_collision = true
 width = 100.0
 depth = 100.0
 material = SubResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.5
+margin_top = -10.5
+margin_right = 10.5
+margin_bottom = 10.5
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.92401, 0 )

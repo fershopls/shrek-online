@@ -25,3 +25,15 @@ func add_brain_local():
 	b.set_script(preload("res://src/Player/Brains/Local/BrainLocal.gd"))
 	b.camera = add_camera()
 	add_child(b)
+	return b
+
+
+func add_brain_client(id):
+	var b = Node.new()
+	b.set_script(preload("res://src/Player/Brains/Client/BrainClient.gd"))
+	if id == get_tree().get_network_unique_id():
+		b.camera = add_camera()
+	add_child(b)
+	b.set_network_master(id)
+	return b
+

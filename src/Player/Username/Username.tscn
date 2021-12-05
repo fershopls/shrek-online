@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/AsepriteFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/Player/Username/Username.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Username" type="Position3D"]
+script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Username" type="Label" parent="Node2D"]
+margin_left = -84.0
+margin_top = -29.0
+margin_right = 86.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 1 )
+text = "UNKNOWN"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

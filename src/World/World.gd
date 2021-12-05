@@ -21,10 +21,8 @@ func _process(delta):
 
 
 remote func set_shrek_pos(id, pos):
-	if str(id) == str(get_tree().get_network_unique_id()):
-		return
-	
-	get_shrek(id).global_transform.origin = pos
+	var shrek = get_shrek(id)
+	shrek.global_transform.origin = lerp(shrek.global_transform.origin, pos, 0.3)
 
 
 func add_shrek(id):

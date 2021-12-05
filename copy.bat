@@ -1,2 +1,2 @@
 @echo off
-scp ./export.pck fer:/home/godot/export.pck
+scp ./%1 fer:/home/godot

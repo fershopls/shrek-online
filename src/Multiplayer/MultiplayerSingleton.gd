@@ -8,7 +8,8 @@ func _ready():
 func play():
 	get_tree().change_scene("res://src/World/World.tscn")
 	yield(get_tree(), "idle_frame")
-	get_tree().current_scene.add_shrek().add_brain_local()
+	var id = get_tree().get_network_unique_id()
+	get_tree().current_scene.add_shrek(id).add_brain_local()
 
 func _connection_failed():
 	print ('Connection failed.')
@@ -16,5 +17,5 @@ func _connection_failed():
 
 func _on_network_peer_connected(id):
 	print("Peer %s connected." % id)
-	get_tree().current_scene.add_shrek()
+	get_tree().current_scene.add_shrek(id)
 

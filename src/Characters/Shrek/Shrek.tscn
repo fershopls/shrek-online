@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://3d/downloaded/shrek/export/Shrekmat.material" type="Material" id=1]
+[ext_resource path="res://assets/fonts/AsepriteFont.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/Characters/Shrek/Shrek.gd" type="Script" id=3]
 [ext_resource path="res://src/Characters/Model.gd" type="Script" id=4]
+[ext_resource path="res://src/Player/Username/Username.gd" type="Script" id=5]
 
 [sub_resource type="CylinderShape" id=7]
 radius = 0.372342
@@ -1417,6 +1419,10 @@ start_node = "idle-loop"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
+[sub_resource type="DynamicFont" id=30]
+size = 32
+font_data = ExtResource( 2 )
+
 [node name="Shrek" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 3 )
@@ -1657,3 +1663,21 @@ anims/run-loop = SubResource( 8 )
 tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 23 )
+
+[node name="Username" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10282, 0 )
+script = ExtResource( 5 )
+
+[node name="Node2D" type="Node2D" parent="Username"]
+
+[node name="Username" type="Label" parent="Username/Node2D"]
+margin_left = -84.0
+margin_top = -29.0
+margin_right = 86.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 30 )
+text = "UNKNOWN"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

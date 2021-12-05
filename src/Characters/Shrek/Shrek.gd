@@ -5,6 +5,7 @@ var velocity: Vector3
 
 onready var model = $Model
 onready var scope = $Scope
+onready var username = $Username
 
 func _physics_process(delta):
 	move_and_slide(velocity)

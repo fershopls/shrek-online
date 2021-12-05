@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Position3D",
+"class": "Aligner2D",
+"language": "GDScript",
+"path": "res://src/Shared/Aligner2D/Aligner2D.gd"
+} ]
 _global_script_class_icons={
-
+"Aligner2D": ""
 }
 
 [application]

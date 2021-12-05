@@ -23,6 +23,8 @@ ambient_light_sky_contribution = 0.5
 [node name="World" type="Node"]
 script = ExtResource( 4 )
 
+[node name="Peers" type="Node" parent="."]
+
 [node name="Floor" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 use_collision = true

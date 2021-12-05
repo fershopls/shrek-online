@@ -1,5 +1,11 @@
 extends Node
 
+func _ready():
+	var args = OS.get_cmdline_args()
+	
+	if args.size() >= 2 and args[1] == "server":
+		create_server(6969, 5)
+
 func _on_Server_button_up():
 	create_server(6969, 5)
 

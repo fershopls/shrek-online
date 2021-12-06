@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_Client_button_up():
-	create_client('xavy.mx', 6969)
+	create_client('127.0.0.1', 6969)
 
 
 func create_server(port, max_players):
